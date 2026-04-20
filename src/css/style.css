@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+:root {
+  /* Основные цвета */
+  --color-bg: #F2F2F2;        /* Светлый фон (как у вас на первом скрине) */
+  --color-text: #1A1A1A;      /* Основной текст (почти чёрный для читаемости) */
+  --color-text-light: #666666; /* Второстепенный текст */
+  
+  /* Акценты (чувственная, мягкая палитра) */
+  --color-accent: #D94A4A;     /* Нежный красный / телесный акцент */
+  --color-accent-soft: #E8A0A0; /* Мягкий акцент */
+  --color-btn: #ff71ac; /* Кнопка цвет */
+
+
+  
+  /* Дополнительные */
+  --color-border: #E0E0E0;     /* Цвет границ */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  
+  /* Шрифты */
+  --font-main: Arial, Helvetica, sans-serif;
+  
+  /* Размеры (адаптив из ваших данных) */
+  --font-size-base: 95px;      /* Крупный заголовок */
+  --font-size-mobile: 33px;    /* Мобильная версия */
+  
+  /* Отступы */
+  --pc-padding: 20px 100px;
+  --container-padding: 15px;
+}
+
+body {
+  font-family: var(--font-main);
+}
+
+a {
+    color: var(--color-text-light);
+}
+
+.btn-click {
+    padding: 10px 50px;
+    border: none;
+    font-size: 25px;
+    background: var(--color-btn);
+    color: var(--color-bg);
+    cursor: pointer;
+}
+
+
+.btn-click:hover{
+    background: #080808;
+}
+
+/* HEADER */
+
+.header-fixed {
+    width: 100%;
+    height: 60px;
+    padding: var(--pc-padding);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ebebebf0;
+    z-index: 10;
+}
+
+.header-fixed .wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-img {
+    width: 60px;
+    height: 50px;
+}
+
+.menu-btn {
+    width: 28px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    align-items: flex-start;
+}
+
+.menu-btn.hidden {
+    display: none;
+}
+
+.menu-btn .line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--color-black);
+}
+
+.menu-btn .line:nth-child(2) {
+    width: 80%;
+}
+
+/* Стили для кнопки закрытия */
+.menu-btn.btn-close {
+    width: 28px;
+    height: 28px;
+    right: 100px;
+    top: 0;
+    margin-top: -40px;
+}
+
+.menu-btn.btn-close .line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+}
+
+/* Превращаем полоски в крестик */
+.menu-btn.btn-close .line:first-child {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-btn.btn-close .line:last-child {
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Опционально: анимация при наведении на крестик */
+.menu-btn.btn-close:hover .line:first-child {
+    transform: translateY(-50%) rotate(135deg);
+}
+
+.menu-btn.btn-close:hover .line:last-child {
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+.header-menu {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    background: #ebebebf0;
+    transform: translateY(-200%); /* Скрываем меню за верхней границей */
+    transition: transform 0.3s ease-in-out; /* Плавная анимация */
+    z-index: 99;
+}
+
+
+
+/* Класс для показа меню */
+.header-menu.active {
+    transform: translateY(0);
+}
+
+/* Стили для кнопки закрытия внутри меню */
+.btn-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+nav ul {
+    border-top: 1px solid #111;
+    list-style: none;
+    padding: var(--pc-padding);
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 20px;
+}
+
+nav ul li:last-child {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #111;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+/* HEADER */
+
+/* SCREEN MAIN */
+
+.screen {
+    width: 100%;
+    height: 100vh;
+    background: url(../img/screen-bg.jpg) center center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.screen .wrap {
+    padding: var(--pc-padding);
+    padding-top: 200px;
+}
+
+.title {
+    font-size: 100px;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    margin-left: -6px;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.screen .btn-click {
+    margin-top: 50px;
+}
+
+/* SCREEN MAIN */
+
+/* ABOUT */
+
+.about {
+    width: 100%;
+    display: flex;
+    padding: var(--pc-padding);
+    background: var(--color-bg);
+}
+
+.about h2 {
+    margin: 30px 0 50px 0;
+    font-size: 40px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #111;
+}
+
+.about .wrap {
+    display: flex;
+    gap: 100px;
+}
+
+.about .img {
+    width: 400px;
+    height: 700px;
+    margin-top: -200px;
+}
+
+.about .text {
+    font-size: 25px;
+    line-height: 50px;
+    font-weight: 100;
+    font-family: sans-serif;
+    color: var(--color-text-light);
+}
+/* ABOUT */
+
+/* NEW */
+
+.new button {
+    display: block;
+    margin: 0 auto;
+}
+
+.new {
+    width: 100%;
+    padding: var(--pc-padding);
+    padding-top: 0;
+}
+
+.new h2 {
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: center;
+    margin: 40px 0;
+    font-size: 36px;
+}
+
+.new .wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.new .item {
+    width: 24%;
+    height: 550px;
+    text-align: center;
+    color: #111;
+    background: linear-gradient(to bottom, #000, #fff);
+}
+
+.new .item .img {
+    width: 100%;
+    height: 400px;
+}
+
+.card-title {
+    font-family: 'Georgia';
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.card-price {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.card-description {
+    padding: 0 5px;
+    font-size: 15px;
+    color: var(--color-text-light);
+}
+
+/* NEW */
+
+
+footer {
+    height: 300px;
+    padding: var(--pc-padding);
+    color: #fff;
+    background: #000;
+}
