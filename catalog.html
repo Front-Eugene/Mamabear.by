@@ -47,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="contact.html">
+                    <a href="#footer">
                         Контакты
                     </a>
                 </li>
@@ -60,6 +60,18 @@
 
     <section class="new catalog">
         <h2>Каталог</h2>
+        <div>
+        <!-- Панель фильтрации -->
+        <div class="filter-bar">
+            <ul class="filter-list">
+                <li class="filter-item"><button class="filter-link active" data-cat="all">Все</button></li>
+                <li class="filter-item"><button class="filter-link" data-cat="top">Верх</button></li>
+                <li class="filter-item"><button class="filter-link" data-cat="bottom">Низ</button></li>
+                <li class="filter-item"><button class="filter-link" data-cat="overalls">Комбинезоны</button></li>
+                <li class="filter-item"><button class="filter-link" data-cat="suits">Костюмы</button></li>
+                <li class="filter-item"><button class="filter-link" data-cat="swimwear">Купальники</button></li>
+            </ul>
+        </div>
         <div class="wrap">
             <a class="item" href="">
                 <div class="img" style="background: url(src/img/c1.webp) center center/cover no-repeat;"></div>
@@ -89,18 +101,92 @@
                 <p class="card-description">Платье мини со шлейфом из полупрозрачного тенсела</p>
             </a>
         </div>
-        <button class="btn-click">
-            Перйти в каталог
-        </button>
     </section>
 
 </main>
 
-<footer>
+    <footer id="footer">
+        <div class="item">
+            <p>Связаться с нами</p>
+            <div class="item social">
+                <a href="">
+                    <div class="logo-img" style="background: url(src/img/whatsapp.webp) center center/cover no-repeat;">
+                    </div>
+                </a>
 
-</footer>
+                <a href="">
+                    <div class="logo-img" style="background: url(src/img/instahram.webp) center center/cover no-repeat;">
+                    </div>
+                </a>
+                
+                <a href="">
+                    <div class="logo-img" style="background: url(src/img/telegram.webp) center center/cover no-repeat;">
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="tel:+375445659408">+375 44 565 9408</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
+                <div class="logo-img" style="background: url(src/img/logo-bear.png) center center/cover no-repeat; margin-bottom: 20px;">
+                </div>
+                <p>Mamabear.by</p>
+            </a>
+            <p>Индивидуальный предприниматель Медведь Елена Владимировна</p>
+            <p>УНП 692164774</p>
+            <p>р/сч BY16 BPSB 3013 3164 8301 7933 0000 БИК BPSBBY2X </p>
+            <p>ОАО "Сбер Банк" г.Минск</p>
+            <p>Минская обл., Минский р-н, Папернянский с/с., д.Чижовка, ул.Кольцевая, д.1</p>
+        </div>
+
+        <div class="item links">
+            <div>
+                <a href="catalog.html">Каталог</a>
+            </div>
+            <div>
+                <a href="about.html">О бренде</a>
+            </div>
+            <div>
+                <a href="about.html">Публичная оферта</a>
+            </div>
+            <div>
+                <a href="about.html">Оплата</a>
+            </div>
+            <div>
+                <a href="about.html">Возврат и обмен</a>
+            </div>
+        </div>
+    </footer>
+
 
 <script src="src/js/script.js"></script>
+<script>
+    // Маленький скрипт для демонстрации переключения активной категории
+    // В реальном проекте вы привяжете это к своему фильтру товаров
+    const links = document.querySelectorAll('.filter-link');
+    
+    function setActive(activeLink) {
+        links.forEach(link => {
+            link.classList.remove('active');
+        });
+        activeLink.classList.add('active');
+        
+        // Здесь можно добавить логику фильтрации товаров
+        const category = activeLink.getAttribute('data-cat');
+        console.log(`Фильтр изменён на категорию: ${category}`);
+        // Ваш код фильтрации товаров в WordPress (через ajax или перезагрузку)
+    }
+    
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            setActive(link);
+        });
+    });
+</script>
 </body>
 
 </html>

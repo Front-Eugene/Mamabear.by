@@ -52,3 +52,40 @@ document.addEventListener('click', function(event) {
         closeMenu();
     }
 });
+
+// Обработка кликов по якорным ссылкам внутри меню
+document.querySelectorAll('.header-menu a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        
+        // Если меню открыто - сначала закрываем его
+        if (menu.classList.contains('active')) {
+            closeMenu();
+            
+            // Небольшая задержка, чтобы меню успело закрыться и прокрутка разблокировалась
+            setTimeout(() => {
+                scrollToTarget(targetId);
+            }, 300); // 300ms - длительность анимации закрытия меню (подберите под вашу CSS-анимацию)
+        } else {
+            scrollToTarget(targetId);
+        }
+    });
+});
+
+// Функция для прокрутки к цели
+function scrollToTarget(targetId) {
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+        const headerOffset = 80; // Отступ от верха (учитывая высоту вашего фиксированного хедера)
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+}

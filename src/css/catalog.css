@@ -1,3 +1,113 @@
 .catalog {
     padding-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Блок фильтрации */
+.filter-bar {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 0 16px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+}
+
+/* Список категорий */
+.filter-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #e5e7eb;
+    /* тонкая серая полоска фоном */
+}
+
+/* Каждый пункт */
+.filter-item {
+    display: inline-flex;
+}
+
+/* Кнопка / ссылка категории */
+.filter-link {
+    display: block;
+    padding: 12px 4px 10px 4px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6b7280;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+/* ТОНКАЯ ПОЛОСКА У ВСЕХ (но она скрыта, если не active/hover) — 
+           либо сделаем её всегда видимой прозрачной, либо через ::after */
+/* Вариант: всегда есть полоска у каждого пункта, но цвет по умолчанию прозрачный */
+.filter-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    /* тонкая полоска 2px */
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+/* При наведении — полоска становится серой (неактивная, но видимая) */
+.filter-link:hover::after {
+    background-color: #d1d5db;
+}
+
+/* АКТИВНАЯ КАТЕГОРИЯ — полоска другого цвета (например, синяя) */
+.filter-link.active {
+    color: #222;
+}
+
+.filter-link.active::after {
+    background-color: #222;
+    /* яркая синяя полоска */
+}
+
+/* Доп. стили для скролла на мобилках */
+@media (max-width: 800px) {
+    .filter-bar {
+        padding: 0 12px;
+        box-shadow: none;
+    }
+
+    .filter-list {
+        flex-direction: column;
+        border-bottom: none;
+        gap: 15px;
+    }
+
+    .filter-link {
+        font-size: 20px;
+        padding: 0;
+    }
+}
+
+/* Пример смены активной категории через JS (демо) */
+.demo-note {
+    text-align: center;
+    margin-top: 24px;
+    color: #4b5563;
+    font-size: 14px;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 40px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -175,7 +175,6 @@ a {
 }
 
 nav ul {
-    border-top: 1px solid #111;
     list-style: none;
     padding: var(--pc-padding);
     margin: 0;
@@ -333,10 +332,27 @@ nav ul li a:hover {
 
 
 footer {
-    height: 300px;
+    display: flex;
+    justify-content: space-between;
     padding: var(--pc-padding);
-    color: #fff;
+    color: #666;
     background: #000;
+}
+
+.item.links a {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.social {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.social .logo-img {
+    width: 30px;
+    height: 30px;
 }
 
 
@@ -377,5 +393,10 @@ footer {
 
     .new .item {
         width: 100%;
+    }
+
+    footer {
+        gap: 20px;
+        flex-direction: column;
     }
 }

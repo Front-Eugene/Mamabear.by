@@ -1,0 +1,31 @@
+.about {
+    padding-top: 150px;
+}
+
+.about .img {
+    min-width: 400px;
+    margin-top: 0;
+}
+
+.about .text {
+    line-height: normal;
+}
+
+@media (max-width: 800px) {
+    .about {
+        padding-top: 50px;
+    }
+
+    .about .img {
+        min-width: 100%;
+        margin-top: 20px;
+    }
+
+    .about h2 {
+        margin: 30px 0 10px 0;
+    }
+
+    .about .wrap {
+        flex-direction: column-reverse;
+    }
+}
